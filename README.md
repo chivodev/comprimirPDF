@@ -20,8 +20,28 @@ de escritorio [xfce](https://www.xfce.org/)
 	$ sudo pacman -Sy zenity ghostscript
 
 ## Aqui crearemos el script
-Una vez instalado los paquetes necesarios, es momento de escoger donde guardar el script.
-Les recomiendo crear una carpeta donde guardar los script personalizados.
+Una vez instalado los paquetes necesarios, procedemos a seguir los pasos a continuación.
 
-Creamos la carpeta ejecutando el siguiente comando
-	$ mkdir ~/config/Thunar/customScripts
+1. Creamos la carpeta ejecutando el siguiente comando
+
+		$ mkdir ~/config/Thunar/customScripts
+
+2. A continuacion creamos el archivo donde pegar el codigo
+
+		$ nano ~/config/Thunar/customScripts/comprimirPDF
+
+3. Luego que se abra el editor pegan el codigo del script comprimirPDF.sh, alli encontraras cada linea documentada
+
+4. Luego de pegada (ctrl + shift + v) la informacion, guardamos ( ctrl + o ), y cerramos ( ctrl + x ) el editor
+
+5. Ahora otorgamos permisos de ejecucion al script
+
+		$ sudo chmod +x ~/config/Thunar/customScripts/comprimirPDF
+
+# Creamos la accion personalizada en gestor de archivos Thunar
+Ahora procedemos con los pasos para crear un accion personalizada en Thunar.
+Para ellos abrimos el gestor de archivos Thunar.
+
+1. Damos click en Editar y luego en Configurar acciones personalizadas...
+
+	![ScreenShot 1](screenshots/screenshot_1.png)
