@@ -2,7 +2,7 @@
 Script Bash para comprimir archivos con gestor de archivos Thunar, de forma rapida y sencilla
 
 ## Instalar los paquetes necesarios para ejecutar el script
-Para poder reducir los archivos pdf es necesario tener instalado los paquetes de zenity y ghostscript. Y el entorno
+Para poder reducir los archivos pdf es necesario tener instalado los paquetes de zenity y ghostscript. En el entorno
 de escritorio [xfce](https://www.xfce.org/)
 
 ### Aqui algunos comandos para instalar de acuerdo a cada distribucion que usen
@@ -30,7 +30,7 @@ Una vez instalado los paquetes necesarios, procedemos a seguir los pasos a conti
 
 		$ nano ~/config/Thunar/customScripts/comprimirPDF
 
-3. Luego que se abra el editor pegan el codigo del script comprimirPDF.sh, alli encontraras cada linea documentada
+3. Luego que se abra el editor pegan el codigo del script **comprimirPDF.sh**, alli encontraras cada linea documentada
 
 4. Luego de pegada (ctrl + shift + v) la informacion, guardamos ( ctrl + o ), y cerramos ( ctrl + x ) el editor
 
@@ -60,7 +60,8 @@ Para ellos abrimos el gestor de archivos Thunar.
 
 	![ScreenShot 1](screenshots/screenshot_3.png)
 
-	__Nota: La ruta del script debe finalizar con %n para que pueda enviar como variable el archivo seleccionado.__
+	*__Nota: Deben cambiar {USER} por el nombre de usuario de la maquina.__*
+	*__Nota: La ruta del script debe finalizar con %n para que pueda enviar como variable el archivo seleccionado.__*
 
 	- En la pestaña de Condiciones de aparición, deben poner lo siguiente.
 
@@ -69,3 +70,14 @@ Para ellos abrimos el gestor de archivos Thunar.
 	- Damos click en Aceptar.
 
 	![ScreenShot 1](screenshots/screenshot_4.png)
+
+# Comentario acerca del funcionamiento del script
+
+En varias pruebas realizadas he tenido buenos resultados, algunos muy optimos, unos pocos no tan optimos, pero eso lo he visto en otros programas de
+reduccion de calidad en archivos PDF's.
+
+A continuacion mostrare una tabla de compatibilidades, donde pueden cambiar el Nivel de compatibilidad.
+
+| Acrobat >= 4.0 | Acrobat >= 5.0 | Acrobat >= 6.0 | Acrobat >= 7.0 | 8.0 >= Acrobat <= 9.0 |
+| :-------: | :-------: | :-------: | :-------: | :-------: |
+| -dCompatibilityLevel=1.3 | -dCompatibilityLevel=1.4 | -dCompatibilityLevel=1.5 | -dCompatibilityLevel=1.6 | -dCompatibilityLevel=1.7 |
