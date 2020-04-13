@@ -5,7 +5,7 @@ Tambien pueden crear un alias para usarlo en cualquier Entorno de Escritorio Lin
 
 ## Instalar los paquetes necesarios para ejecutar el script
 Para poder reducir los archivos pdf es necesario tener instalado los paquetes de zenity y ghostscript. En el entorno
-de escritorio [xfce](https://www.xfce.org/)
+de escritorio [xfce](https://www.xfce.org/) o cualquier otro entorno que usen.
 
 ### Aqui algunos comandos para instalar de acuerdo a cada distribucion que usen
 
