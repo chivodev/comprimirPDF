@@ -1,5 +1,7 @@
 # comprimirPDF
+
 Script Bash para comprimir archivos con gestor de archivos Thunar, de forma rapida y sencilla
+Tambien pueden crear un alias para usarlo en cualquier Entorno de Escritorio Linux, al final mostrare como crear el alias.
 
 ## Instalar los paquetes necesarios para ejecutar el script
 Para poder reducir los archivos pdf es necesario tener instalado los paquetes de zenity y ghostscript. En el entorno
@@ -28,7 +30,7 @@ Una vez instalado los paquetes necesarios, procedemos a seguir los pasos a conti
 
 2. A continuacion creamos el archivo donde pegar el codigo
 
-		$ nano ~/config/Thunar/customScripts/comprimirPDF
+		$ nano ~/config/Thunar/customScripts/comprimirPDF.sh
 
 3. Luego que se abra el editor pegan el codigo del script **comprimirPDF.sh**, alli encontraras cada linea documentada
 
@@ -36,7 +38,7 @@ Una vez instalado los paquetes necesarios, procedemos a seguir los pasos a conti
 
 5. Ahora otorgamos permisos de ejecucion al script
 
-		$ sudo chmod +x ~/config/Thunar/customScripts/comprimirPDF
+		$ sudo chmod +x ~/config/Thunar/customScripts/comprimirPDF.sh
 
 # Creamos la accion personalizada en gestor de archivos Thunar
 Ahora procedemos con los pasos para crear un accion personalizada en Thunar.
@@ -56,7 +58,7 @@ Para ellos abrimos el gestor de archivos Thunar.
 
 	- En el campo de orden, debe escribir la ruta donde esta el script
 
-		bash /home/{USER}/.config/Thunar/customScripts/comprimirPDF %n
+		bash /home/{USER}/.config/Thunar/customScripts/comprimirPDF.sh %n
 
 	![ScreenShot 1](screenshots/screenshot_3.png)
 
@@ -71,7 +73,11 @@ Para ellos abrimos el gestor de archivos Thunar.
 
 	![ScreenShot 1](screenshots/screenshot_4.png)
 
-# Comentario acerca del funcionamiento del script
+# Comentario acerca del script
+
+Cabe aclarar que el codigo se pude usar para cualquier entorno de escritorio.
+
+Para compresion de archivos por lotes, seguir los mismos pasos mencionado anteriormente.
 
 En varias pruebas realizadas he tenido buenos resultados, algunos muy optimos, unos pocos no tan optimos, pero eso lo he visto en otros programas de
 reduccion de calidad en archivos PDF's.
@@ -81,3 +87,31 @@ A continuacion mostrare una tabla de compatibilidades, donde pueden cambiar el N
 | Acrobat >= 4.0 | Acrobat >= 5.0 | Acrobat >= 6.0 | Acrobat >= 7.0 | 8.0 >= Acrobat <= 9.0 |
 | :-------: | :-------: | :-------: | :-------: | :-------: |
 | -dCompatibilityLevel=1.3 | -dCompatibilityLevel=1.4 | -dCompatibilityLevel=1.5 | -dCompatibilityLevel=1.6 | -dCompatibilityLevel=1.7 |
+
+
+# Creando alias para usar el script por comando
+
+Lo primero que haremos sera abrir .bashrc con el editor nano
+
+	$ sudo nano ~/.bashrc
+
+Al final de este crearemos el alias indicando la ruta de cada script
+
+	alias comprimirPDF='bash ~/.config/Thunar/customScripts/comprimirPDF.sh'
+	alias comprimirLotesPDF='bash ~/.config/Thunar/customScripts/comprimirLotesPDF.sh'
+
+Recargamos el .bashrc
+
+	$ source ~/.bashrc
+
+Y ahora lo unico que debemos hacer es ir al directorio con el/los archivos pdf desde la terminal, y ejecutar el script
+
+	$ cd /path/to/filesPDF
+
+Este comando para archivo unico
+
+	$ comprimirPDF nombrePDF.pdf
+
+Este comando para multiples archivos
+
+	$ comprimirLotesPDF

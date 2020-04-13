@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Script creado por Ch1v0D3v
+# Uso para un solo archivo
 
 function opciones {
 	# Creamos la ventana de dialogo y una escucha a cancelar
@@ -25,6 +26,14 @@ file_input="$@"
 dd if="$file_input" of=/dev/null 2>/dev/null
 # Archivo de salida con el mismo nombre, concatenado por compress_
 file_output="compress_$file_input"
+
+# Validamos que el archivo sea pdf
+extension=${file_input##*.}
+echo $extension
+if [[ "$extension" != "pdf" ]]; then
+	zenity --error --text="El archivo seleccionado no es PDF."
+	exit
+fi
 
 case $option in
 	#Método default
@@ -53,4 +62,4 @@ case $option in
 esac
 
 # Mostramos mensaje de compresion exitosa
-zenity --info --title="Mensaje" --text="Archivo $file_input reducido, Archivo $file_output creado exitosamente"
+zenity --info --title="Compresion Finalizada" --text="Archivo $file_input reducido, Archivo $file_output creado exitosamente"
